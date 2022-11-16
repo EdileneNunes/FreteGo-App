@@ -1,8 +1,9 @@
 import Sequelize from 'sequelize';
 import connection from '../config/db.js';
+import bcrypt from 'bcrypt';
 
-const Object = connection.define(
-    'object',
+const Car = connection.define(
+    'car',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -18,28 +19,43 @@ const Object = connection.define(
                 key: 'id'
             }
         },
-        name:{
+        CNH: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        weight: {
-            type: Sequelize.FLOAT,
-            allowNull: false
-        },
-        size: {
-            type: Sequelize.FLOAT,
-            allowNull: false
-        },
-        numberOfObjects: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        },
-        description: {
+        vehicleType: {
             type: Sequelize.STRING,
             allowNull: false
         },
-
+        model: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        mark: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        color: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        licensePlate: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        yearOfManufacture: {
+            type: Sequelize.DATE,
+            allowNull: false
+        },
+        capacity: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        canopyCar: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false
+        }
     }
 );
 
-export default Object;
+export default Car;
