@@ -25,12 +25,12 @@ const App = () => {
           state.isLogged ? (
             <>
               <Stack.Screen name="ValidateToken" component={ValidateToken}/>
-              
+              <Stack.Screen name="Routes" component={Routes} />
               <Stack.Screen name="RegisterCar" component={RegisterCar}/>
             </>
           ) : (
             <>
-            <Stack.Screen name="Routes" component={Routes} />     
+                 
            <Stack.Screen name="Login" component={Login} />  
              <Stack.Screen name="RegisterUser" component={RegisterUser} />
               

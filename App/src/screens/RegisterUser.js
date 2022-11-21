@@ -74,7 +74,7 @@ const RegisterUser = ({ navigation }) => {
             <TouchableOpacity
                 onPress={() => navigation.navigate("Login")}
             >
-                <Text>
+                <Text style={styles.text}>
                     Já tem uma conta?{" "}
                     <Text style={styles.loginText}>Faça o login</Text>
                 </Text>
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
+        backgroundColor: '#272933'
     },
     logo: {
         width: '70%',
@@ -95,12 +96,15 @@ const styles = StyleSheet.create({
     },
     loginText: {
         fontWeight: "bold",
-        color: "#6200ee",
+        color: "#daa520",
+    },
+    text: {
+        color: "#fff"
     },
     picker: {
         marginVertical: 5,
         borderRadius: 5,
-        backgroundColor: 'lightgray',
+        backgroundColor: '#ffeec0',
         textAlignVertical: 'center',
         textAlign: 'center',
         fontSize: '14px',
