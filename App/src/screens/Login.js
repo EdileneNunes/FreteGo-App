@@ -6,6 +6,7 @@ import CustomButton from "../components/CustomButton";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../api';
 import { Context } from '../context/authContext';
+import { FullWindowOverlay } from "react-native-screens";
 
 const Login = ({ navigation }) => {
     const { dispatch } = useContext(Context);
@@ -59,8 +60,13 @@ const Login = ({ navigation }) => {
             <TouchableOpacity
                 onPress={() => navigation.navigate("RegisterUser")}
             >
+<<<<<<< HEAD
                 <Text>
                     Don't have an account?{" "}
+=======
+                <Text style={styles.text}>
+                    Não tem uma conta?{" "}
+>>>>>>> 839a1204857a6bfc08400e1247377079570ac308
                     <Text style={styles.createAccountText}>
                         Create new account
                     </Text>
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#272933'
+        backgroundColor: '#272933',
     },
     logo: {
         width: '70%',
@@ -84,8 +90,11 @@ const styles = StyleSheet.create({
     },
     createAccountText: {
         fontWeight: "bold",
-        color: "#6200ee",
+        color: "#daa520",
     },
+    text: {
+        color: "#fff"
+    }
 });
 
 export default Login;
