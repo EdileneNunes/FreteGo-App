@@ -21,8 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent:'space-around',
-    backgroundColor: '#272933'
+    justifyContent:'space-around'
     
   },
   text: {

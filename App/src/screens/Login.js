@@ -1,6 +1,6 @@
-import { StyleSheet, TouchableOpacity, View, Image, useWindowDimensions, Text, TextInput } from "react-native";
+import { StyleSheet, TouchableOpacity, View, Image, useWindowDimensions, Text, TextInput, Alert } from "react-native";
 import React, { useState, useContext } from 'react';
-import Logo from '../../assets/images/Logo.png'
+import Logo from '../../assets/images/Logo.png';
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,15 +18,15 @@ const Login = ({ navigation }) => {
                 email: email,
                 password: password
             })
-            if(authData.status === 200){
+            if (authData.status === 200) {
                 await AsyncStorage.setItem('token', authData.data.token)
-                dispatch({type:'logIn', payload: true})
+                dispatch({ type: 'logIn', payload: true })
             } else {
-                alert('Email ou Senha Inválidos')
+                Alert.alert('Invalid Email or Password')
                 setPassword('')
             }
         } catch (error) {
-            alert('Email ou Senha Inválidos')
+            Alert.alert('Invalid Email or Password')
             setPassword('')
         }
     }
@@ -60,9 +60,9 @@ const Login = ({ navigation }) => {
                 onPress={() => navigation.navigate("RegisterUser")}
             >
                 <Text>
-                    Não tem uma conta?{" "}
+                    Don't have an account?{" "}
                     <Text style={styles.createAccountText}>
-                        Crie uma
+                        Create new account
                     </Text>
                 </Text>
             </TouchableOpacity>
@@ -72,7 +72,6 @@ const Login = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    
     view: {
         alignItems: 'center',
         padding: 20,

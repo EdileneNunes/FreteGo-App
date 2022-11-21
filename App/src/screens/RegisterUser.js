@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, useWindowDimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, useWindowDimensions, TouchableOpacity, Alert } from "react-native";
 import React, { useState } from 'react';
 import Logo from '../../assets/images/Logo.png';
 import CustomInput from "../components/CustomInput";
@@ -23,8 +23,8 @@ const RegisterUser = ({ navigation }) => {
                 admin: admin
             });
             if (data.status === 200) {
-                console.log(data)
-                alert(data.data.message)
+                console.log(data)  
+               alert(data.data.message)
                 navigation.navigate('Login')
             } else {
                 console.log(data)
@@ -75,8 +75,8 @@ const RegisterUser = ({ navigation }) => {
                 onPress={() => navigation.navigate("Login")}
             >
                 <Text>
-                    Já tem uma conta?{" "}
-                    <Text style={styles.loginText}>Faça o login</Text>
+                Already have an account?{" "}
+                    <Text style={styles.loginText}>Sign in</Text>
                 </Text>
             </TouchableOpacity>
         </View>
