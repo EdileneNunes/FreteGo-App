@@ -41,7 +41,6 @@ const RegisterCar = ({ navigation }) => {
             });
             if (authData.status === 200) {
                alert(authData.data.message)
-               Alert.alert("Carro cadastrado")
                 setCNH("")
                 setVehicleType("")
                 setModel("")
@@ -128,7 +127,7 @@ const RegisterCar = ({ navigation }) => {
                 <Picker.Item label="Não possui Capota" value="false" />
             </Picker>
 
-            <CustomButton text="Register" onPress={onRegisterPressed} />
+            <CustomButton text="Register" onPress={(onRegisterPressed) => navigation.navigate("UpdateCar")} />
         </View>
     )
 };
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     picker: {
         marginVertical: 5,
         borderRadius: 5,
-        backgroundColor: 'FFEEC0',
+        backgroundColor: '#FFEEC0',
         textAlignVertical: 'center',
         textAlign: 'center',
         fontSize: '14px',
@@ -159,9 +158,6 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         height: 45,
         width: '100%'
-    },
-    textInput: {
-        color: 'red'
     }
 });
 

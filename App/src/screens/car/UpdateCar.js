@@ -9,32 +9,32 @@ import { Context } from '../../context/authContext'
 const UpdateCar = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
 
-    const [car, setCar] = useState('');
+    const [cars, setCars] = useState('');
 
     useEffect(() => {
         const onScreenLoad = async () => {
             const list = await api.get('/car/findByUser', {
                 params: {
-                    idUser: state.idUser,
+                    idCar: state.idCar,
                 }
             });
             console.log(list);
-            setCar(list.data.car)
+            setCars(list.data.cars)
             dispatch({ type: "update", payload: false })
         }
         onScreenLoad();
     }, [state.update]
     )
 
-    const [CNH, setCNH] = useState(car.CNH);
-    const [vehicleType, setVehicleType] = useState(car.vehicleType);
-    const [model, setModel] = useState(car.model);
-    const [mark, setMark] = useState(car.mark);
-    const [color, setColor] = useState(car.setColor);
-    const [licensePlate, setLicensePlate] = useState(car.licensePlate);
-    const [yearOfManufacture, setYearOfManufacture] = useState(car.yearOfManufacture);
-    const [capacity, setCapacity] = useState(car.capacity);
-    const [canopyCar, setCanopyCar] = useState(car.canopyCar);
+    const [CNH, setCNH] = useState(cars.CNH);
+    const [vehicleType, setVehicleType] = useState(cars.vehicleType);
+    const [model, setModel] = useState(cars.model);
+    const [mark, setMark] = useState(cars.mark);
+    const [color, setColor] = useState(cars.setColor);
+    const [licensePlate, setLicensePlate] = useState(cars.licensePlate);
+    const [yearOfManufacture, setYearOfManufacture] = useState(cars.yearOfManufacture);
+    const [capacity, setCapacity] = useState(cars.capacity);
+    const [canopyCar, setCanopyCar] = useState(cars.canopyCar);
 
     const onRegisterPressed = async () => {
         try {
@@ -51,16 +51,16 @@ const UpdateCar = ({ navigation }) => {
             });
             if (authData.status === 200) {
                 alert(authData.data.message)
-                // setCNH("")
-                // setVehicleType("")
-                // setModel("")
-                // setMark("")
-                // setColor("")
-                // setLicensePlate("")
-                // setYearOfManufacture("")
-                // setCapacity("")
-                // setCanopyCar("")
-                // dispatch({ type: "update", payload: true })
+                setCNH("")
+                setVehicleType("")
+                setModel("")
+                setMark("")
+                setColor("")
+                setLicensePlate("")
+                setYearOfManufacture("")
+                setCapacity("")
+                setCanopyCar("")
+                dispatch({ type: "update", payload: true })
             } else {
                 console.log(authData.data.message)
             }

@@ -14,7 +14,7 @@ const Cars = ({ navigation }) => {
         const onScreenLoad = async () => {
             const list = await api.get('/car/findByUser', {
                 params: {
-                    idUser: state.idUser,
+                    idCar: state.idCar,
                 }
             });
             console.log(list);

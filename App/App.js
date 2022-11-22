@@ -13,6 +13,7 @@ import Login from './src/screens/Login';
 import RegisterUser from './src/screens/RegisterUser';
 import ValidateToken from './src/screens/ValidateToken';
 import UpdateCar from './src/screens/car/UpdateCar';
+import Home from './src/screens/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,8 +33,9 @@ const App = () => {
             </>
           ) : (
             <>
-              <Stack.Screen name="RegisterCar" component={RegisterCar} />
+              {/* <Stack.Screen name="RegisterCar" component={RegisterCar} />
               <Stack.Screen name="UpdateCar" component={UpdateCar} />
+              <Stack.Screen name="Home" component={Home} /> */}
               <Stack.Screen name="Login" component={Login} />
               <Stack.Screen name="RegisterUser" component={RegisterUser} />
 
