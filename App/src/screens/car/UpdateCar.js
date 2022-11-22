@@ -4,7 +4,7 @@ import api from '../../api'
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 import { Context } from '../../context/authContext'
-import { Picker } from '@react-native-picker/picker';
+// import { Picker } from '@react-native-picker/picker';
 
 const UpdateCar = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
@@ -51,16 +51,16 @@ const UpdateCar = ({ navigation }) => {
             });
             if (authData.status === 200) {
                 alert(authData.data.message)
-                setCNH("")
-                setVehicleType("")
-                setModel("")
-                setMark("")
-                setColor("")
-                setLicensePlate("")
-                setYearOfManufacture("")
-                setCapacity("")
-                setCanopyCar("")
-                dispatch({ type: "update", payload: true })
+                // setCNH("")
+                // setVehicleType("")
+                // setModel("")
+                // setMark("")
+                // setColor("")
+                // setLicensePlate("")
+                // setYearOfManufacture("")
+                // setCapacity("")
+                // setCanopyCar("")
+                // dispatch({ type: "update", payload: true })
             } else {
                 console.log(authData.data.message)
             }
@@ -119,7 +119,7 @@ const UpdateCar = ({ navigation }) => {
                 setValue={setCapacity}
             />
 
-            <Picker
+            {/* <Picker
                 selectedValue={canopyCar}
                 style={styles.picker}
                 onValueChange={setCanopyCar}
@@ -127,7 +127,7 @@ const UpdateCar = ({ navigation }) => {
             >
                 <Picker.Item label="" value="true" />
                 <Picker.Item label="" value="false" />
-            </Picker>
+            </Picker> */}
 
             <CustomButton text="Update" onPress={onRegisterPressed} />
 
