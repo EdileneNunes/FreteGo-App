@@ -37,4 +37,59 @@ orderregistration.post("/order-registration", async (req, res) => {
     }
 });
 
-orderregistration.get ('/findByOrderRegistration')
+orderregistration.get ('/findByUser', async (req, res) => {
+    const idUser = req.query.idUser;
+    const orderregistration = await OrderRegistration.findAll({
+        where: {
+            idUser: idUser
+        },
+        include: [{model: Object}]
+    }).catch(
+        (err) => {
+            console.log(err)
+        }
+    );
+    if(orderregistration){
+        return res.json({ orderregistration })
+    } else {
+        return null
+    }
+})
+orderregistration.get ('/findByObject', async (req, res) => {
+    const idObject = req.query.idObject;
+    const orderregistration = await OrderRegistration.findAll({
+        where: {
+            idObject: idObject
+        },
+        include: [{model: Car}]
+    }).catch(
+        (err) => {
+            console.log(err)
+        }
+    );
+    if(orderregistration){
+        return res.json({ orderregistration })
+    } else {
+        return null
+    }
+});
+orderregistration.get ('/findByCar', async (req, res) => {
+    const idCar = req.query.idCar;
+    const orderregistration = await OrderRegistration.findAll({
+        where: {
+            idCar: idCar
+        },
+        include: [{model: User}]
+    }).catch(
+        (err) => {
+            console.log(err)
+        }
+    );
+    if(orderregistration){
+        return res.json({ orderregistration })
+    } else {
+        return null
+    }
+})
+
+export default orderregistration;

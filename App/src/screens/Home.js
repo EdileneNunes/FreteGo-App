@@ -10,9 +10,9 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Olá, {state.name}</Text>
-      <CustomButton text="Restaurants" onPress={() => navigation.navigate("Restaurants")} />
+      {/* <CustomButton text="Restaurants" onPress={() => navigation.navigate("Restaurants")} />
       <CustomButton text="Reviews" onPress={() => navigation.navigate("Reviews")} />
-      <CustomButton text="Users" onPress={() => navigation.navigate("Users")} />
+      <CustomButton text="Users" onPress={() => navigation.navigate("Users")} /> */}
     </View>
   )
 }

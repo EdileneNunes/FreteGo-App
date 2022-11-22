@@ -4,37 +4,37 @@ import api from '../../api'
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 import { Context } from '../../context/authContext'
-import { Picker } from '@react-native-picker/picker';
+// import { Picker } from '@react-native-picker/picker';
 
 const UpdateCar = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
 
-    const [car, setCar] = useState('');
+    const [cars, setCars] = useState('');
 
     useEffect(() => {
         const onScreenLoad = async () => {
             const list = await api.get('/car/findByUser', {
                 params: {
-                    idUser: state.idUser,
+                    idCar: state.idCar,
                 }
             });
             console.log(list);
-            setCar(list.data.car)
+            setCars(list.data.cars)
             dispatch({ type: "update", payload: false })
         }
         onScreenLoad();
     }, [state.update]
     )
 
-    const [CNH, setCNH] = useState(car.CNH);
-    const [vehicleType, setVehicleType] = useState(car.vehicleType);
-    const [model, setModel] = useState(car.model);
-    const [mark, setMark] = useState(car.mark);
-    const [color, setColor] = useState(car.setColor);
-    const [licensePlate, setLicensePlate] = useState(car.licensePlate);
-    const [yearOfManufacture, setYearOfManufacture] = useState(car.yearOfManufacture);
-    const [capacity, setCapacity] = useState(car.capacity);
-    const [canopyCar, setCanopyCar] = useState(car.canopyCar);
+    const [CNH, setCNH] = useState(cars.CNH);
+    const [vehicleType, setVehicleType] = useState(cars.vehicleType);
+    const [model, setModel] = useState(cars.model);
+    const [mark, setMark] = useState(cars.mark);
+    const [color, setColor] = useState(cars.setColor);
+    const [licensePlate, setLicensePlate] = useState(cars.licensePlate);
+    const [yearOfManufacture, setYearOfManufacture] = useState(cars.yearOfManufacture);
+    const [capacity, setCapacity] = useState(cars.capacity);
+    const [canopyCar, setCanopyCar] = useState(cars.canopyCar);
 
     const onRegisterPressed = async () => {
         try {
@@ -119,7 +119,7 @@ const UpdateCar = ({ navigation }) => {
                 setValue={setCapacity}
             />
 
-            <Picker
+            {/* <Picker
                 selectedValue={canopyCar}
                 style={styles.picker}
                 onValueChange={setCanopyCar}
@@ -127,7 +127,7 @@ const UpdateCar = ({ navigation }) => {
             >
                 <Picker.Item label="" value="true" />
                 <Picker.Item label="" value="false" />
-            </Picker>
+            </Picker> */}
 
             <CustomButton text="Update" onPress={onRegisterPressed} />
 

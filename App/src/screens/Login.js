@@ -6,7 +6,7 @@ import CustomButton from "../components/CustomButton";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../api';
 import { Context } from '../context/authContext';
-import { FullWindowOverlay } from "react-native-screens";
+
 
 const Login = ({ navigation }) => {
     const { dispatch } = useContext(Context);
@@ -23,11 +23,11 @@ const Login = ({ navigation }) => {
                 await AsyncStorage.setItem('token', authData.data.token)
                 dispatch({ type: 'logIn', payload: true })
             } else {
-                Alert.alert('Invalid Email or Password')
+                Alert.alert('Email ou Senha inválidos')
                 setPassword('')
             }
         } catch (error) {
-            Alert.alert('Invalid Email or Password')
+            Alert.alert('Email ou Senha inválidos')
             setPassword('')
         }
     }
@@ -60,15 +60,10 @@ const Login = ({ navigation }) => {
             <TouchableOpacity
                 onPress={() => navigation.navigate("RegisterUser")}
             >
-<<<<<<< HEAD
-                <Text>
-                    Don't have an account?{" "}
-=======
                 <Text style={styles.text}>
                     Não tem uma conta?{" "}
->>>>>>> 839a1204857a6bfc08400e1247377079570ac308
                     <Text style={styles.createAccountText}>
-                        Create new account
+                        Crie uma
                     </Text>
                 </Text>
             </TouchableOpacity>
@@ -82,6 +77,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#272933',
+        flex: 1
     },
     logo: {
         width: '70%',

@@ -18,15 +18,18 @@ car.post("/register", async (req, res) => {
     );
 
     if (alreadyExistsCar) {
-        return res.status(409).json({ message: "License Plate already registered!" });
+        console.log("Placa existente: " + alreadyExistsCar);
+        return res
+        .status(409)
+        .json({ message: "Placa já utilizada por outro Carro!" });
     }
     const newCar = new Car({ idUser, CNH, vehicleType, model, mark, color, licensePlate, yearOfManufacture, capacity, canopyCar });
     const savedCar = await newCar.save().catch((err) => {
         console.log("Error: ", err);
-        res.status(500).json({ error: "Sorry! Could not registered the Car"});
+        res.status(500).json({ error: "Não foi possível cadastrar o Carro"});
     });
 
-    if (savedCar) res.json({ message: "New Car Registered!" });
+    if (savedCar) res.json({ message: "Carro cadastrado!" });
 });
 
 

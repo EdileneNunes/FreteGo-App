@@ -1,6 +1,6 @@
 import { StyleSheet, View, Image, useWindowDimensions, Alert } from "react-native";
 import React, { useContext, useState } from 'react';
-import Logo from '../../assets/images/Logo.png';
+import Logo from '../../../assets/images/Logo.png'
 import api from '../../api'
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
@@ -70,49 +70,49 @@ const RegisterCar = ({ navigation }) => {
             />
 
             <CustomInput
-                placeholder="Number of CNH"
+                placeholder="Número de CNH"
                 value={CNH}
                 setValue={setCNH}
             />
 
             <CustomInput
-                placeholder="Type of Vehicle"
+                placeholder="Tipo de veículo"
                 value={vehicleType}
                 setValue={setVehicleType}
             />
 
             <CustomInput
-                placeholder="Model"
+                placeholder="Modelo"
                 value={model}
                 setValue={setModel}
             />
 
             <CustomInput
-                placeholder="Mark"
+                placeholder="Marca"
                 value={mark}
                 setValue={setMark}
             />
 
             <CustomInput
-                placeholder="Color"
+                placeholder="Cor"
                 value={color}
                 setValue={setColor}
             />
 
             <CustomInput
-                placeholder="License Plate"
+                placeholder="Placa"
                 value={licensePlate}
                 setValue={setLicensePlate}
             />
 
             <CustomInput
-                placeholder="Year Of Manufacture"
+                placeholder="Ano de fabricação"
                 value={yearOfManufacture}
                 setValue={setYearOfManufacture}
             />
 
             <CustomInput
-                placeholder="Capacity"
+                placeholder="Capacidade"
                 value={capacity}
                 setValue={setCapacity}
             />
@@ -123,11 +123,11 @@ const RegisterCar = ({ navigation }) => {
                 onValueChange={setCanopyCar}
 
             >
-                <Picker.Item label="Have Capony" value="true" />
-                <Picker.Item label="Not Have Capony" value="false" />
+                <Picker.Item label="Possui Capota" value="true" />
+                <Picker.Item label="Não possui Capota" value="false" />
             </Picker>
 
-            <CustomButton text="Register" onPress={onRegisterPressed} />
+            <CustomButton text="Register" onPress={(onRegisterPressed) => navigation.navigate("UpdateCar")} />
         </View>
     )
 };
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     picker: {
         marginVertical: 5,
         borderRadius: 5,
-        backgroundColor: 'FFEEC0',
+        backgroundColor: '#FFEEC0',
         textAlignVertical: 'center',
         textAlign: 'center',
         fontSize: '14px',
