@@ -6,16 +6,13 @@ import { Entypo } from '@expo/vector-icons'
 import { Context } from '../context/authContext'
 
 import Home from './Home'
-import RestaurantRoutes from './restaurant/RestaurantRoutes'
-import ReviewRoutes from './review/ReviewRoutes'
-import Users from './Users'
 
 const Tab = createBottomTabNavigator();
 
 const Routes = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
     return (
-        <Tab.Navigator screenOptions={{
+        <Tab.Navigator  screenOptions={{
             headerRight: () => (
                 <Entypo
                     name='log-out'
@@ -23,6 +20,7 @@ const Routes = ({ navigation }) => {
                     style={{ margin: 10 }}
                     onPress={() => dispatch({ type: 'logOut' })}
                     color="#000"
+                
                 />
             )            
         }} >
@@ -35,24 +33,7 @@ const Routes = ({ navigation }) => {
                     ),
                 }}
             />
-            <Tab.Screen
-                name="Restaurants"
-                component={RestaurantRoutes}
-                options={{
-                    tabBarIcon: () => (
-                        <Entypo name='bowl' size={30} />
-                    )
-                }}
-            />
-            <Tab.Screen
-                name="Reviews"
-                component={ReviewRoutes}
-                options={{
-                    tabBarIcon: () => (
-                        <Entypo name='fingerprint' size={30} />
-                    )
-                }}
-            />
+        
 
             {state.isAdmin ? (
                 <Tab.Screen
@@ -75,4 +56,9 @@ const Routes = ({ navigation }) => {
 
 export default Routes
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#272933'
+        
+      }
+})
