@@ -4,6 +4,7 @@ import User from './User';
 import Object from './Object';
 import Car from './Car';
 
+
 const OrderRegistration = connection.define(
     'Order-Registration',
     {

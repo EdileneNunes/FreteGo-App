@@ -6,7 +6,6 @@ import User from "../models/User";
 import Object from "../models/Object";
 import Car from "../models/Car";
 
-
 const orderregistration = express.Router();
 
 orderregistration.get('/', (req, res) => {
@@ -17,7 +16,7 @@ orderregistration.post("/order-registration", async (req, res) => {
 
     const {idUser, idObject, idCar, starting_point, arrival_point} = req.body;
 
-    const orderAlreadySent = await OrderRegistration.findOne({where: {idCar}}).catch(
+    const orderAlreadySent = await OrderRegistration.findOne({where: {idCar, idUser}}).catch(
         (err) => {
             console.log("Error", err)
         }
