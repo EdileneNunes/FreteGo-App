@@ -58,4 +58,9 @@ const Car = connection.define(
     }
 );
 
+Car.belongsTo(User, {
+    foreignKey: 'idUser'
+});
+
+
 export default Car;

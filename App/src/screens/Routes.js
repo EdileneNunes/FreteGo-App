@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons'
 import { Context } from '../context/authContext'
 
 import Home from './Home'
-import Users from './Users'
+import Cars from './car/Cars'
 
 const Tab = createBottomTabNavigator();
 
@@ -38,11 +38,11 @@ const Routes = ({ navigation }) => {
 
             {state.isAdmin ? (
                 <Tab.Screen
-                    name="Users"
-                    component={Users}
+                    name="Cars"
+                    component={Cars}
                     options={{
                         tabBarIcon: () => (
-                            <Entypo name='user' size={30} />
+                            <Entypo name='car' size={30} />
                         )
                     }}
                 />

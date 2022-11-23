@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../api';
 import { Context } from '../context/authContext';
 
+
 const Login = ({ navigation }) => {
     const { dispatch } = useContext(Context);
     const [email, setEmail] = useState('');
@@ -59,7 +60,7 @@ const Login = ({ navigation }) => {
             <TouchableOpacity
                 onPress={() => navigation.navigate("RegisterUser")}
             >
-                <Text>
+                <Text style={styles.text}>
                     Não tem uma conta?{" "}
                     <Text style={styles.createAccountText}>
                         Crie uma
@@ -76,7 +77,8 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#272933'
+        backgroundColor: '#272933',
+        flex: 1
     },
     logo: {
         width: '70%',
@@ -85,8 +87,11 @@ const styles = StyleSheet.create({
     },
     createAccountText: {
         fontWeight: "bold",
-        color: "#6200ee",
+        color: "#daa520",
     },
+    text: {
+        color: "#fff"
+    }
 });
 
 export default Login;
