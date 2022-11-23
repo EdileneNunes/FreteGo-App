@@ -23,11 +23,11 @@ const Login = ({ navigation }) => {
                 await AsyncStorage.setItem('token', authData.data.token)
                 dispatch({ type: 'logIn', payload: true })
             } else {
-                Alert.alert('Email ou Senha inválidos')
+                alert('Email ou Senha inválidos')
                 setPassword('')
             }
         } catch (error) {
-            Alert.alert('Email ou Senha inválidos')
+            alert('Email ou Senha inválidos')
             setPassword('')
         }
     }

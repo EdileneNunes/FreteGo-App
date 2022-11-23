@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Image, useWindowDimensions, TouchableOpacity, Alert } from "react-native";
 import React, { useEffect, useState } from 'react';
-import Logo from '../../assets/images/Logo.png';
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 import api from '../api'
 import { Context } from '../../context/authContext'
 
 const UpdateUser = ({ navigation }) => {
+
     const { state, dispatch } = useContext(Context)
 
     const [user, setUser] = useState('');
@@ -30,28 +30,28 @@ const UpdateUser = ({ navigation }) => {
     const [email, setEmail] = useState(user.email);
     const [password, setPassword] = useState(user.password);
 
-    const onRegisterPressed = async () => {
-        try {
-            const authData = await api.post('/user/register', {
-                name: name,
-                email: email,
-                password: password,
-                admin: admin
-            });
-            if (authData.status === 200) {
-                alert(authData.data.message)
-                setName("")
-                setEmail("")
-                setPassword("")
-                dispatch({ type: "update", payload: true })
-            } else {
-                console.log(authData.data.message);
-            }
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
+    // const onRegisterPressed = async () => {
+    //     try {
+    //         const authData = await api.post('/user/register', {
+    //             name: name,
+    //             email: email,
+    //             password: password,
+    //             admin: admin
+    //         });
+    //         if (authData.status === 200) {
+    //             alert(authData.data.message)
+    //             setName("")
+    //             setEmail("")
+    //             setPassword("")
+    //             dispatch({ type: "update", payload: true })
+    //         } else {
+    //             console.log(authData.data.message);
+    //         }
+    //     }
+    //     catch (e) {
+    //         console.log(e);
+    //     }
+    // }
     return (
         <View style={styles.view}>
 
