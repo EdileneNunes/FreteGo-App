@@ -63,8 +63,5 @@ Car.belongsTo(User, {
     foreignKey: 'idUser'
 });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 4ff4c605da55a5b2ee722fd7c263fdbeafab771f
 export default Car;
