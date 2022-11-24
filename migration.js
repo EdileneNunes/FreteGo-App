@@ -1,4 +1,8 @@
-import connection from "./config/db";
+import connection from "./config/db.js";
+import User from "./models/User.js";
+import Car from "./models/Car.js";
+import Object from "./models/Object.js";
+
 
 
 const migrate = async () => {

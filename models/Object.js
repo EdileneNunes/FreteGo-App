@@ -41,5 +41,7 @@ const Object = connection.define(
 
     }
 );
+ 
+await Object.sync({ force: true});
 
 export default Object;

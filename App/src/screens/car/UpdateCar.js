@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { StyleSheet, Text, View, Image, useWindowDimensions, TouchableOpacity, Picker } from "react-native";
+=======
+import { StyleSheet, Text, View, Image, useWindowDimensions, TouchableOpacity } from "react-native";
+>>>>>>> 7b7a88be35362ffa95a69a40d8ff767fa217cb1a
 import React, { useContext, useEffect, useState } from 'react';
 import api from '../../api'
 import CustomInput from "../../components/CustomInput";
@@ -71,7 +75,10 @@ const UpdateCar = ({ navigation }) => {
         }
     }
     return (
-        <View>
+        <View style={styles.view}>
+
+            <Text style={styles.text}>Edite os dados de seu carro</Text>
+
             <CustomInput
                 placeholder=""
                 value={CNH}
@@ -138,7 +145,7 @@ const UpdateCar = ({ navigation }) => {
                         name='delete'
                         size={20}
                         style={{ margin: 10 }}
-                        onPress={() => dispatch({ type: 'delete' })}
+                        onPress={() => dispatch({ type: 'delete count' })}
                         color="red"
 
                     />  
@@ -154,6 +161,8 @@ const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
         padding: 20,
+        backgroundColor: '#272933',
+        flex: 1
     },
     picker: {
         marginVertical: 5,
@@ -166,6 +175,11 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         height: 45,
         width: '100%'
+    },
+    text: {
+        color: "#fff",
+        fontSize: 20,
+        paddingBottom: 20
     }
 });
 

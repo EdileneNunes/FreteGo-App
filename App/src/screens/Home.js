@@ -12,11 +12,14 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Text style={styles.text}>Olá, {state.name}</Text>
       {/* <CustomButton text="Restaurants" onPress={() => navigation.navigate("Restaurants")} />
       <CustomButton text="Reviews" onPress={() => navigation.navigate("Reviews")} />
       <CustomButton text="Users" onPress={() => navigation.navigate("Users")} /> */}
 =======
+=======
+>>>>>>> 7b7a88be35362ffa95a69a40d8ff767fa217cb1a
         <MapView
           style={styles.maps}
           initialRegion={{
@@ -30,7 +33,10 @@ const Home = ({ navigation }) => {
         <Text style={styles.text}>Olá, {state.name}</Text>
         </View>
 
+<<<<<<< HEAD
 >>>>>>> 4ff4c605da55a5b2ee722fd7c263fdbeafab771f
+=======
+>>>>>>> 7b7a88be35362ffa95a69a40d8ff767fa217cb1a
     </View>
   )
 }
@@ -39,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
 <<<<<<< HEAD
+<<<<<<< HEAD
     justifyContent:'space-around'
     
 =======
@@ -46,6 +53,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#272933'
 
 >>>>>>> 4ff4c605da55a5b2ee722fd7c263fdbeafab771f
+=======
+    justifyContent: 'space-around',
+    backgroundColor: '#272933'
+
+>>>>>>> 7b7a88be35362ffa95a69a40d8ff767fa217cb1a
   },
   text: {
     fontSize: 30,
