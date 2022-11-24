@@ -28,7 +28,11 @@ const App = () => {
           state.isLogged ? (
             <>
               <Stack.Screen name="ValidateToken" component={ValidateToken} />
+<<<<<<< HEAD
               <Stack.Screen name="Routes" component={Routes} />
+=======
+              
+>>>>>>> 4ff4c605da55a5b2ee722fd7c263fdbeafab771f
 
             </>
           ) : (
@@ -36,6 +40,10 @@ const App = () => {
               {/* <Stack.Screen name="RegisterCar" component={RegisterCar} />
               <Stack.Screen name="UpdateCar" component={UpdateCar} />
               <Stack.Screen name="Home" component={Home} /> */}
+<<<<<<< HEAD
+=======
+              <Stack.Screen name="Routes" component={Routes} />
+>>>>>>> 4ff4c605da55a5b2ee722fd7c263fdbeafab771f
               <Stack.Screen name="Login" component={Login} />
               <Stack.Screen name="RegisterUser" component={RegisterUser} />
 
