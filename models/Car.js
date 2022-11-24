@@ -62,5 +62,6 @@ Car.belongsTo(User, {
     foreignKey: 'idUser'
 });
 
+await Car.sync({ force: true });
 
 export default Car;
