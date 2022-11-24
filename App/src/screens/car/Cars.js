@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, useWindowDimensions } from "react-native";
+import { StyleSheet, View, Image, useWindowDimensions, FlatList } from "react-native";
 import React, { useContext, useEffect, useState } from 'react';
 import api from '../../api'
 import CustomButton from "../../components/CustomButton";
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     view: {
         flex: 1,
         justifyContent: "center",
+        backgroundColor: '#272933'
     },
     button: {
         marginBottom: 20
