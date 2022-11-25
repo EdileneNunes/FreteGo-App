@@ -26,7 +26,7 @@ const Cars = ({ navigation }) => {
     )
 
     return (
-        <View style={StyleSheet.view}>
+        <View style={styles.view}>
             {state.isAdmin ? (
                 <CustomButton text="Add Car" onPress={() => navigation.navigate("RegisterCar")} />
             ) : (
@@ -61,9 +61,10 @@ export default Cars;
 
 const styles = StyleSheet.create({
     view: {
-        flex: 1,
-        justifyContent: "center",
-        backgroundColor: '#272933'
+        alignItems: 'center',
+        padding: 5,
+        backgroundColor: '#272933',
+        flex: 1
     },
     button: {
         marginBottom: 20
@@ -74,19 +75,26 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderRadius: 10,
-        backgroundColor: 'lightblue',
-        alignItems: 'center'
+        backgroundColor: '#FFEEC0',
+        alignItems: 'center',
+        borderColor: '#e8e8e8'
     },
     text: {
-        height: 120,
-        width: '80%',
+        height: 250,
+        width: 350,
         justifyContent: "center",
     },
     title: {
-        fontSize: 30
+        fontSize: 30,
+        // fontFamily: 'Helvetica',
+        fontWeight: 'bold',
+        textTransform: 'uppercase'
     },
     item: {
-        fontSize: 15
+        fontSize: 20,
+        // fontFamily: 'Helvetica',
+        textTransform: 'uppercase',
+        marginBottom: 5
     },
     icon: {
         margin: 0

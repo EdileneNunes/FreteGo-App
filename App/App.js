@@ -6,14 +6,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Context, Provider } from './src/context/authContext';
 
-import RegisterCar from './src/screens/car/RegisterCar'
 
 import Routes from './src/screens/Routes';
 import Login from './src/screens/Login';
-import RegisterUser from './src/screens/RegisterUser';
+import RegisterUser from './src/screens/car/RegisterCar';
 import ValidateToken from './src/screens/ValidateToken';
-import UpdateCar from './src/screens/car/UpdateCar';
-import Home from './src/screens/Home';
 
 const Stack = createNativeStackNavigator();
 

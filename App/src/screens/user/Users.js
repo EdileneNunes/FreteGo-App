@@ -27,16 +27,22 @@ const Users = ({ navigation }) => {
 
     return (
         <View style={styles.view}>
+
+            <Entypo name="user" size={60} color="#eee" />
+
             <CustomInput
                 value={state.name}
+                editable={false}
             />
 
             <CustomInput
                 value={state.email}
+                editable={false}
             />
 
             <CustomInput
                 value={state.password}
+                editable={false}
             />
         </View>
 
@@ -49,6 +55,7 @@ const styles = StyleSheet.create({
     view: {
         flex: 1,
         justifyContent: "center",
+        backgroundColor: '#272933',
     },
     container: {
         flexDirection: "row",
