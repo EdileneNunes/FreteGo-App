@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { Context } from '../context/authContext'
 import CustomButton from '../components/CustomButton';
-//import MapView from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 
 const Home = ({ navigation }) => {
@@ -11,7 +11,7 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-       {/* <MapView
+        <MapView
           style={styles.maps}
           initialRegion={{
             latitude: 37.78825,
@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-        />*/}
+        />
         <View style={styles.main}>
         <Text style={styles.text}>Olá, {state.name}</Text>
         </View>
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: 'space-around',
-    backgroundColor: '#272933'
-
+    backgroundColor: '#272933',
+    maxHeight: '50%'
   },
   text: {
     fontSize: 30,

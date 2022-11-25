@@ -34,10 +34,10 @@ car.post("/register", async (req, res) => {
 
 
 car.get('/findByUser', async (req, res) => {
-    const idCar = req.query.idCar;
-    const car = await Car.findOne({
+    const idUser = req.query.idUser;
+    const cars = await Car.findAll({
         where: {
-            idCar: idCar
+            idUser: idUser
         },
         include: [{ model: User}]
     }).catch(
@@ -46,8 +46,8 @@ car.get('/findByUser', async (req, res) => {
         }
     );
 
-    if (car) {
-        return res.json({ car })
+    if (cars) {
+        return res.json({cars})
     } else {
         return null
     }

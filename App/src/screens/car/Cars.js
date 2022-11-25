@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, useWindowDimensions, FlatList } from "react-native";
+import { StyleSheet, View, Image, useWindowDimensions, Text, FlatList } from "react-native";
 import React, { useContext, useEffect, useState } from 'react';
 import api from '../../api'
 import CustomButton from "../../components/CustomButton";
@@ -14,7 +14,7 @@ const Cars = ({ navigation }) => {
         const onScreenLoad = async () => {
             const list = await api.get('/car/findByUser', {
                 params: {
-                    idCar: state.idCar,
+                    idUser: state.idUser,
                 }
             });
             console.log(list);
@@ -24,6 +24,16 @@ const Cars = ({ navigation }) => {
         onScreenLoad();
     }, [state.update]
     )
+
+    // const newCar = async (item) => {
+    //     await dispatch({type: 'setCar', payload: item});
+    //     navigation.navigate('Cars')
+    // }
+
+    // const seeCar = async (item) => {
+    //     await dispatch({type: 'setCar', payload: item});
+    //     navigation.navigate('RegisterCar')
+    // }
 
     return (
         <View style={StyleSheet.view}>
@@ -37,7 +47,7 @@ const Cars = ({ navigation }) => {
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.container}>
-                            <TouchableOpacity style={styles.text} onPress={() => seeReview(item)}>
+                            <View style={styles.text}>
                                 <Text style={styles.title}>{item.vehicleType}</Text>
                                 <Text style={styles.item}>{item.model}</Text>
                                 <Text style={styles.item}>{item.mark}</Text>
@@ -46,14 +56,15 @@ const Cars = ({ navigation }) => {
                                 <Text style={styles.item}>{item.yearOfManufacture}</Text>
                                 <Text style={styles.item}>{item.capacity}</Text>
                                 <Text style={styles.item}>{item.canopyCar}</Text>
-                            </TouchableOpacity>
-                            <Entypo
+                            </View>
+                            
+                            {/* <Entypo
                                 name="squared-plus"
                                 size={60}
                                 color="khaki"
                                 style={styles.icon}
-                                onPress={() => newReview(item)}
-                            />
+                                onPress={() => newCar(item)}
+                            /> */}
 
                         </View>
                     )

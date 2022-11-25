@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sistema de fretagem",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=producao node server",
     "dev": "cross-env NODE_ENV=desenvolvimento nodemon server"

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, useWindowDimensions, Alert } from "react-native";
+import { StyleSheet, View, Image, useWindowDimensions, Alert, TouchableOpacity } from "react-native";
 import React, { useContext, useState } from 'react';
 import Logo from '../../../assets/images/Logo.png'
 import api from '../../api'
@@ -6,6 +6,7 @@ import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 import { Context } from '../../context/authContext'
 import { Picker } from '@react-native-picker/picker';
+import Cars from "./Cars";
 
 
 const RegisterCar = ({ navigation }) => {
@@ -62,6 +63,7 @@ const RegisterCar = ({ navigation }) => {
     }
 
     return (
+        <TouchableOpacity>
         <View style={styles.view}>
             <Image
                 source={Logo}
@@ -127,8 +129,9 @@ const RegisterCar = ({ navigation }) => {
                 <Picker.Item label="Não possui Capota" value="false" />
             </Picker>
 
-            <CustomButton text="Register" onPress={(onRegisterPressed) => navigation.navigate("UpdateCar")} />
+            <CustomButton text="Register" onPress={onRegisterPressed} />
         </View>
+        </TouchableOpacity>
     )
 };
 

@@ -41,8 +41,6 @@ const Object = connection.define(
 
     }
 );
- 
-await Object.sync({ force: true});
 
 Review.belongsTo(User, {
     foreignKey: 'idUser'

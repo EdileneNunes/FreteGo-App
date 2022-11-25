@@ -1,12 +1,12 @@
 import express from "express";
 import User from "../models/User.js";
-// import verifyToken from "../config/auth.js";
+import verifyToken from "../config/auth.js";
 
 const user = express.Router();
 
 user.get('/', (req, res) => {
     const token = req.headers['token'];
-    // const authData = verifyToken(token, res);
+    const authData = verifyToken(token, res);
 });
 
 user.post('/register', async (req, res) => {
@@ -33,7 +33,6 @@ user.post('/register', async (req, res) => {
         console.log(savedUser);
         res.json({ message: "Obrigado pelo cadastro!" })
     } 
-
 
 });
 

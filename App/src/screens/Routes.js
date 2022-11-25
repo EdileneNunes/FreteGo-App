@@ -4,11 +4,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Entypo } from '@expo/vector-icons'
 
 import { Context } from '../context/authContext'
+import { AntDesign } from '@expo/vector-icons';
 
 import UserRoutes from './user/UserRoutes'
 import Home from './Home'
 import Cars from './car/CarRoutes'
-import Message from './Menssage'
+import Message from './Message'
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +34,7 @@ const Routes = ({ navigation }) => {
                 component={Home}
                 options={{
                     tabBarIcon: () => (
-                        <Entypo name='home' size={30} />
+                        <AntDesign name="home" size={30} color="black" />
                     ),
                 }}
             />
@@ -43,7 +44,7 @@ const Routes = ({ navigation }) => {
                 component={Message}
                 options={{
                     tabBarIcon: () => (
-                        <Entypo name='message' size={30} />
+                        <AntDesign name="message1" size={30} color="black" />
                     ),
                 }}
             />
@@ -52,7 +53,7 @@ const Routes = ({ navigation }) => {
                 component={UserRoutes}
                 options={{
                     tabBarIcon: () => (
-                        <Entypo name='user' size={30} />
+                        <AntDesign name="user" size={30} color="black" />
                     ),
                 }}
             />
@@ -68,7 +69,7 @@ const Routes = ({ navigation }) => {
                 component={Cars}
                 options={{
                     tabBarIcon: () => (
-                        <Entypo name='plus' size={30} />
+                        <AntDesign name="car" size={30} color="black" />
                     )
                 }}
             />

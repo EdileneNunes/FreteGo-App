@@ -1,4 +1,4 @@
-import { Jwt } from "jsonwebtoken";
+import Jwt from "jsonwebtoken";
 
 const verifyToken = (token, res) => {
     Jwt.verify(
