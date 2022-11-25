@@ -25,16 +25,6 @@ const Cars = ({ navigation }) => {
     }, [state.update]
     )
 
-    // const newCar = async (item) => {
-    //     await dispatch({type: 'setCar', payload: item});
-    //     navigation.navigate('Cars')
-    // }
-
-    // const seeCar = async (item) => {
-    //     await dispatch({type: 'setCar', payload: item});
-    //     navigation.navigate('RegisterCar')
-    // }
-
     return (
         <View style={StyleSheet.view}>
             {state.isAdmin ? (
@@ -57,14 +47,6 @@ const Cars = ({ navigation }) => {
                                 <Text style={styles.item}>{item.capacity}</Text>
                                 <Text style={styles.item}>{item.canopyCar}</Text>
                             </View>
-                            
-                            {/* <Entypo
-                                name="squared-plus"
-                                size={60}
-                                color="khaki"
-                                style={styles.icon}
-                                onPress={() => newCar(item)}
-                            /> */}
 
                         </View>
                     )

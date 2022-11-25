@@ -9,13 +9,9 @@ const Message = ({ navigation }) => {
     return (
         <View style={styles.view}>
 
-            {/* <View style={styles.main}>
-
-            </View> */}
-
             <View style={styles.send}>
                 <CustomMessage
-                    placeholder=""
+                    placeholder="Escreva a mensagem..."
                 />
             </View>
 
@@ -49,12 +45,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         borderRadius: 20,
     },
-    // main: {
-    //     height: '85%',
-    //     width: '100%',
-    //     backgroundColor: 'gray',
-    //     flex: 1
-    // }
+
 });
 
 export default Message;

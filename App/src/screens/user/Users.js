@@ -2,24 +2,24 @@ import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'reac
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../context/authContext'
 import api from '../../api/index'
-import Stars from 'react-native-stars';
 import { Entypo } from "@expo/vector-icons";
+import CustomInput from '../../components/CustomInput';
 
 const Users = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
 
-    const [reviews, setReviews] = useState({});
+    const [users, setUsers] = useState({});
 
     useEffect(() => {
         const onScreenLoad = async () => {
-            const list = await api.get('/review/findByUser', {
+            const list = await api.get('/user/findByUser', {
                 params: {
                     idUser: state.idUser,
-                  }
+                }
             });
             console.log(list);
-            setReviews(list.data.reviews)
-            dispatch({type: "update", payload: false})
+            setUsers(list.data.users)
+            dispatch({ type: "update", payload: false })
         }
         onScreenLoad();
     }, [state.update]
@@ -27,32 +27,18 @@ const Users = ({ navigation }) => {
 
     return (
         <View style={styles.view}>
-            <FlatList
-                data={reviews}
-                renderItem={({ item }) => {
-                    return (
-                        <View style={styles.container}>
-                            <View style={styles.text}>
-                                <Text style={styles.item}>{item.restaurant.name}</Text>
-                                <Text style={styles.title}>{item.comment}</Text>
-                                <Stars
-                                    count={5}
-                                    display={item.stars}
-                                    half={false}
-                                    starSize={50}
-                                    fullStar={<Entypo name='star' style={[styles.myStarStyle]} />}
-                                    halfStar={<Entypo name='star' style={[styles.myStarStyle]} />}
-                                    emptyStar={<Entypo name='star-outlined' style={[styles.myEmptyStarStyle]} />}
-                                />
-                            </View>
-                        </View>
-                    )
-                }
-                }
-                keyExtractor={(item) => item.id}
+            <CustomInput
+                value={state.name}
+            />
+
+            <CustomInput
+                value={state.email}
+            />
+
+            <CustomInput
+                value={state.password}
             />
         </View>
-
 
     )
 }
