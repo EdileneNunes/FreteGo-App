@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, useWindowDimensions, Text, FlatList } from "react-native";
+import { StyleSheet, View, Image, useWindowDimensions, Text, FlatList, SafeAreaView, ScrollView } from "react-native";
 import React, { useContext, useEffect, useState } from 'react';
 import api from '../../api'
 import CustomButton from "../../components/CustomButton";
@@ -26,35 +26,37 @@ const Cars = ({ navigation }) => {
     )
 
     return (
-        <View style={styles.view}>
-            {state.isAdmin ? (
-                <CustomButton text="Add Car" onPress={() => navigation.navigate("RegisterCar")} />
-            ) : (
-                <></>
-            )}
-            <FlatList
-                data={cars}
-                renderItem={({ item }) => {
-                    return (
-                        <View style={styles.container}>
-                            <View style={styles.text}>
-                                <Text style={styles.title}>{item.vehicleType}</Text>
-                                <Text style={styles.item}>{item.model}</Text>
-                                <Text style={styles.item}>{item.mark}</Text>
-                                <Text style={styles.item}>{item.color}</Text>
-                                <Text style={styles.item}>{item.licensePlate}</Text>
-                                <Text style={styles.item}>{item.yearOfManufacture}</Text>
-                                <Text style={styles.item}>{item.capacity}</Text>
-                                <Text style={styles.item}>{item.canopyCar}</Text>
-                            </View>
+        <ScrollView>
+            <View style={styles.view}>
+                {state.isAdmin ? (
+                    <CustomButton text="Add Car" onPress={() => navigation.navigate("RegisterCar")} />
+                ) : (
+                    <></>
+                )}
+                <FlatList
+                    data={cars}
+                    renderItem={({ item }) => {
+                        return (
+                            <View style={styles.container}>
+                                <View style={styles.text}>
+                                    <Text style={styles.title}>{item.vehicleType}</Text>
+                                    <Text style={styles.item}>{item.model}</Text>
+                                    <Text style={styles.item}>{item.mark}</Text>
+                                    <Text style={styles.item}>{item.color}</Text>
+                                    <Text style={styles.item}>{item.licensePlate}</Text>
+                                    <Text style={styles.item}>{item.yearOfManufacture}</Text>
+                                    <Text style={styles.item}>{item.capacity}</Text>
+                                    <Text style={styles.item}>{item.canopyCar}</Text>
+                                </View>
 
-                        </View>
-                    )
-                }
-                }
-                keyExtractor={(item) => item.id}
-            />
-        </View>
+                            </View>
+                        )
+                    }
+                    }
+                    keyExtractor={(item) => item.id}
+                />
+            </View>
+        </ScrollView>
     )
 }
 export default Cars;

@@ -58,21 +58,20 @@ const Routes = ({ navigation }) => {
                 }}
             />
 
-            {/*{state.isAdmin ? (
-                
+            {state.isAdmin ? (
+                <Tab.Screen
+                    name="Car"
+                    component={Cars}
+                    options={{
+                        tabBarIcon: () => (
+                            <AntDesign name="car" size={30} color="black" />
+                        )
+                    }}
+                />
             ) : (
                 <></>
             )
-            }*/}
-            <Tab.Screen
-                name="Car"
-                component={Cars}
-                options={{
-                    tabBarIcon: () => (
-                        <AntDesign name="car" size={30} color="black" />
-                    )
-                }}
-            />
+            }
         </Tab.Navigator>
     )
 }

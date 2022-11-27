@@ -30,7 +30,7 @@ const Users = ({ navigation }) => {
 
     return (
         <View style={styles.view}>
-            <Feather name="settings" size={24} color="#fff" />
+            <Feather name="settings" size={30} color="#fff" />
 
             <View style={styles.count}>
                 <Entypo name="user" size={60} color="#eee" />
@@ -51,9 +51,10 @@ const Users = ({ navigation }) => {
                 editable={false}
             />
 
+            <CustomButton text="Atualizar Perfil" onPress={() => navigation.navigate("")} />
+
             <View style={styles.editar}>
-            <CustomButton text="Atualizar" onPress={() => navigation.navigate("")} />
-            <AntDesign name="delete" size={30} color="red" />
+                <AntDesign name="delete" size={30} color="red" />
             </View>
         </View>
 
@@ -67,34 +68,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         backgroundColor: '#272933',
-    },
-    container: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        margin: 5,
-        padding: 10,
-        borderRadius: 10,
-        backgroundColor: 'lightblue',
-        alignItems: 'center'
-    },
-    text: {
-        height: 120,
-        width: '100%',
-        justifyContent: "center",
-    },
-    title: {
-        fontSize: 20,
-        margin: 5,
-        textAlign: 'center'
-    },
-    item: {
-        margin: 5,
-        fontSize: 15
+        padding: 20
     },
     count: {
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 10
     },
     editar: {
         flex: 2,
+        alignItems: 'flex-end',
+        paddingTop: 20
     }
 })

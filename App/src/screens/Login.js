@@ -19,9 +19,9 @@ const Login = ({ navigation }) => {
                 email: email,
                 password: password
             })
-            if(authData.status === 200){
+            if (authData.status === 200) {
                 await AsyncStorage.setItem('token', authData.data.token)
-                dispatch({type:'logIn', payload: true})
+                dispatch({ type: 'logIn', payload: true })
             } else {
                 alert('Email ou Senha Inválidos')
                 setPassword('')
@@ -73,7 +73,7 @@ const Login = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    
+
     view: {
         alignItems: 'center',
         padding: 20,

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, useWindowDimensions, Alert, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, useWindowDimensions, ScrollView } from "react-native";
 import React, { useContext, useState } from 'react';
 import Logo from '../../../assets/images/Logo.png'
 import api from '../../api'
@@ -6,7 +6,7 @@ import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 import { Context } from '../../context/authContext'
 import { Picker } from '@react-native-picker/picker';
-import Cars from "./Cars";
+// import Cars from "./Cars";
 
 
 const RegisterCar = ({ navigation }) => {
@@ -63,7 +63,7 @@ const RegisterCar = ({ navigation }) => {
     }
 
     return (
-        <TouchableOpacity>
+       <ScrollView>
         <View style={styles.view}>
             <Image
                 source={Logo}
@@ -78,7 +78,7 @@ const RegisterCar = ({ navigation }) => {
             />
 
             <CustomInput
-                placeholder="Tipo de veículo"
+                placeholder="Tipo de Veículo"
                 value={vehicleType}
                 setValue={setVehicleType}
             />
@@ -108,7 +108,7 @@ const RegisterCar = ({ navigation }) => {
             />
 
             <CustomInput
-                placeholder="Ano de fabricação"
+                placeholder="Ano de Fabricação"
                 value={yearOfManufacture}
                 setValue={setYearOfManufacture}
             />
@@ -131,15 +131,17 @@ const RegisterCar = ({ navigation }) => {
 
             <CustomButton text="Register" onPress={onRegisterPressed} />
         </View>
-        </TouchableOpacity>
+        </ScrollView>
+       
     )
 };
 
 const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
-        padding: 20,
-        backgroundColor: '#272933'
+        padding: 10,
+        backgroundColor: '#272933',
+        flex: 1
     },
     logo: {
         width: '70%',

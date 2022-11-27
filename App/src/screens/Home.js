@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { Context } from '../context/authContext'
 import CustomButton from '../components/CustomButton';
-import { Entypo } from '@expo/vector-icons';
 import CustomSolicitation from '../components/CustomSolicitation';
 // import MapView from 'react-native-maps';
 

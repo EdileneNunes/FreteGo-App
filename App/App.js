@@ -9,7 +9,7 @@ import { Context, Provider } from './src/context/authContext';
 
 import Routes from './src/screens/Routes';
 import Login from './src/screens/Login';
-import RegisterUser from './src/screens/car/RegisterCar';
+import RegisterUser from './src/screens/user/RegisterUser';
 import ValidateToken from './src/screens/ValidateToken';
 
 const Stack = createNativeStackNavigator();
