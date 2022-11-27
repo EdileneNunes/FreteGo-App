@@ -18,9 +18,9 @@ const Routes = ({ navigation }) => {
     return (
         <Tab.Navigator screenOptions={{
             headerRight: () => (
-                <Entypo
-                    name='log-out'
-                    size={20}
+                <AntDesign
+                    name='logout'
+                    size={25}
                     style={{ margin: 10 }}
                     onPress={() => dispatch({ type: 'logOut' })}
                     color="#000"
@@ -65,7 +65,7 @@ const Routes = ({ navigation }) => {
             )
             }*/}
             <Tab.Screen
-                name="Cars"
+                name="Car"
                 component={Cars}
                 options={{
                     tabBarIcon: () => (

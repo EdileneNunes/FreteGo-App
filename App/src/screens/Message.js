@@ -2,6 +2,7 @@ import { StyleSheet, TouchableOpacity, View, Image, useWindowDimensions, Text, T
 import React, { useState, useContext } from 'react';
 import CustomMessage from "../components/CustomMessage";
 import CustomButton from "../components/CustomButton";
+import { Feather } from '@expo/vector-icons';
 
 const Message = ({ navigation }) => {
     const { height } = useWindowDimensions();
@@ -9,14 +10,15 @@ const Message = ({ navigation }) => {
     return (
         <View style={styles.view}>
 
+            <CustomMessage
+                placeholder="Escreva a mensagem..."
+            />
+
             <View style={styles.send}>
-                <CustomMessage
-                    placeholder="Escreva a mensagem..."
-                />
+                <Feather name="send" size={28} color="#eee" />
+
             </View>
 
-            <CustomButton text="Send" />
-            
         </View>
     )
 };
@@ -28,24 +30,12 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: '#272933',
         flex: 1,
-        height: '100%'
-
-    },
-    text: {
-        color: "#fff"
     },
     send: {
-        backgroundColor: "#0078fe",
-        padding:10,
-        marginLeft: '45%',
-        borderRadius: 5,
+        padding: 10,
         marginTop: 5,
-        marginRight: "5%",
-        maxWidth: '50%',
-        alignSelf: 'flex-end',
-        borderRadius: 20,
-    },
-
+        alignSelf: 'flex-end'
+    }
 });
 
 export default Message;

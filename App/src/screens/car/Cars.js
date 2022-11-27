@@ -77,24 +77,24 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#FFEEC0',
         alignItems: 'center',
-        borderColor: '#e8e8e8'
+        borderWidth: 5,
+        borderColor: '#00000059'
     },
     text: {
-        height: 250,
+        height: 230,
         width: 350,
         justifyContent: "center",
     },
     title: {
-        fontSize: 30,
-        // fontFamily: 'Helvetica',
+        fontSize: 25,
         fontWeight: 'bold',
         textTransform: 'uppercase'
     },
     item: {
         fontSize: 20,
-        // fontFamily: 'Helvetica',
+        fontFamily: 'Helvetica',
         textTransform: 'uppercase',
-        marginBottom: 5
+        marginBottom: 7
     },
     icon: {
         margin: 0

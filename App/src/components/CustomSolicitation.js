@@ -1,7 +1,7 @@
 import {View, TextInput, StyleSheet } from 'react-native';
 import React from 'react';
  
-const CustomMessage = ({ value, setValue, placeholder, secureTextEntry, editable }) => {
+const CustomSolicitation = ({ value, setValue, placeholder, secureTextEntry, editable }) => {
     return (
         <View style={styles.container}>
             <TextInput
@@ -18,21 +18,20 @@ const CustomMessage = ({ value, setValue, placeholder, secureTextEntry, editable
  
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#0078fe",
-        width: '88%',
+        backgroundColor: '#B1B3B3',
+        width: '100%',
         marginVertical: 5,
         borderWidth: 1,
-        borderColor: '#eee',
         borderRadius: 15,
-      
+        height: 60,
+        alignContent: 'center',
     },
     input: {
         padding: 15,
-        justifyContent: 'flex-start',
-        color: '#eee',
-        fontSize: 20,
-        height: 200
+        fontWeight: 'bold',
+        color: '#25282A',
+        fontSize: 20
     }
 })
  
-export default CustomMessage;
+export default CustomSolicitation;

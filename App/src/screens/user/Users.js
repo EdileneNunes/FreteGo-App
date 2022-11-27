@@ -2,8 +2,11 @@ import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'reac
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../context/authContext'
 import api from '../../api/index'
-import { Entypo } from "@expo/vector-icons";
 import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/CustomButton';
+import { Entypo } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const Users = ({ navigation }) => {
     const { state, dispatch } = useContext(Context)
@@ -27,8 +30,11 @@ const Users = ({ navigation }) => {
 
     return (
         <View style={styles.view}>
+            <Feather name="settings" size={24} color="#fff" />
 
-            <Entypo name="user" size={60} color="#eee" />
+            <View style={styles.count}>
+                <Entypo name="user" size={60} color="#eee" />
+            </View>
 
             <CustomInput
                 value={state.name}
@@ -44,6 +50,11 @@ const Users = ({ navigation }) => {
                 value={state.password}
                 editable={false}
             />
+
+            <View style={styles.editar}>
+            <CustomButton text="Atualizar" onPress={() => navigation.navigate("")} />
+            <AntDesign name="delete" size={30} color="red" />
+            </View>
         </View>
 
     )
@@ -80,21 +91,10 @@ const styles = StyleSheet.create({
         margin: 5,
         fontSize: 15
     },
-    icon: {
-        margin: 10
+    count: {
+        alignItems: 'center'
     },
-    myStarStyle: {
-        color: 'orange',
-        backgroundColor: 'transparent',
-        textShadowColor: 'black',
-        textShadowOffset: { width: 1, height: 1 },
-        textShadowRadius: 2,
-        width: 50,
-        fontSize: 50
-    },
-    myEmptyStarStyle: {
-        color: 'gray',
-        width: 50,
-        fontSize: 50
+    editar: {
+        flex: 2,
     }
 })

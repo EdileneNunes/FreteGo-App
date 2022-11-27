@@ -2,7 +2,8 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { Context } from '../context/authContext'
 import CustomButton from '../components/CustomButton';
-import CustomMessage from '../components/CustomMessage';
+import { Entypo } from '@expo/vector-icons';
+import CustomSolicitation from '../components/CustomSolicitation';
 // import MapView from 'react-native-maps';
 
 
@@ -25,10 +26,10 @@ const Home = ({ navigation }) => {
         <View style={styles.main}>
           <Text style={styles.text}>Olá, {state.name}</Text>
 
-          <CustomMessage
+          <CustomSolicitation
             placeholder="Para onde vc quer ir?"
           />
-
+          
           <CustomButton style={styles.inputChama} text="Chamar" onPress={() => navigation.navigate("")} />
         </View>
 
@@ -40,16 +41,17 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     alignItems: "center",
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
     backgroundColor: '#272933',
+    paddingBottom: 30
   },
   container: {
-   
-    maxHeight: '50%'
+    maxHeight: '50%',
   },
   text: {
     fontSize: 30,
-    margin: 40
+    margin: 40,
+    fontWeight: 'bold'
   },
   maps: {
     height: '60%',
@@ -57,13 +59,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#666666'
   },
   main: {
-    height: '40%',
-    backgroundColor: '#272933',
-    width: '100%',
-    flex: 1
-  },
-  inputChama: {
-    maxWidth: '30%'
+    backgroundColor: '#FFEEC0',
+    width: 300,
+    flex: 2,
+    borderRadius: '100%',
+    borderColor: '#00000059',
+    borderWidth: 5
   }
 })
 
