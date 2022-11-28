@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { Context } from '../context/authContext'
-import CustomButton from '../components/CustomButton';
-import MapView from 'react-native-maps';
+// import CustomButton from '../components/CustomButton';
+// import MapView from 'react-native-maps';
 
 
 const Home = ({ navigation }) => {

@@ -50,6 +50,5 @@ const User = connection.define(
     }
 );
 
-await User.sync({ force: true });
 
 export default User;
