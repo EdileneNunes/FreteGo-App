@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import connection from '../config/db.js';
 import bcrypt from 'bcrypt';
+import User from './User.js';
 
 const Car = connection.define(
     'car',
@@ -57,5 +58,9 @@ const Car = connection.define(
         }
     }
 );
+
+Car.belongsTo(User, {
+    foreignKey: 'idUser'
+});
 
 export default Car;

@@ -1,27 +1,35 @@
-import { StyleSheet, Text, View, Image, useWindowDimensions, TouchableOpacity } from "react-native";
-import React, { useState } from 'react';
-import Logo from '../../assets/images/Logo.png';
-import CustomInput from "../components/CustomInput";
-import CustomButton from "../components/CustomButton";
-import api from '../api'
+import { StyleSheet, View, Image, useWindowDimensions, ScrollView } from "react-native";
+import React, { useContext, useState } from 'react';
+import Logo from '../../../assets/images/Logo.png'
+import api from '../../api'
+import CustomInput from "../../components/CustomInput";
+import CustomButton from "../../components/CustomButton";
+import { Context } from '../../context/authContext'
 import { Picker } from '@react-native-picker/picker';
+// import Cars from "./Cars";
+
 
 const RegisterCar = ({ navigation }) => {
+
+    const { state, dispatch } = useContext(Context);
+
+    const [idUser, setidUser] = useState(state.idUser);
     const [CNH, setCNH] = useState('');
     const [vehicleType, setVehicleType] = useState('');
     const [model, setModel] = useState('');
     const [mark, setMark] = useState('');
     const [color, setColor] = useState('');
-    const [ licensePlate, setLicensePlate] = useState('');
-    const [ yearOfManufacture, setYearOfManufacture] = useState('');
-    const [ capacity, setCapacity] = useState('');
-    const [canopyCar, setCanopyCar] = useState('');
+    const [licensePlate, setLicensePlate] = useState('');
+    const [yearOfManufacture, setYearOfManufacture] = useState('');
+    const [capacity, setCapacity] = useState('');
+    const [canopyCar, setCanopyCar] = useState(false);
 
     const { height } = useWindowDimensions();
 
     const onRegisterPressed = async () => {
         try {
-            const data = await api.post('/car/register', {
+            const authData = await api.post("/car/register", {
+                idUser: idUser,
                 CNH: CNH,
                 vehicleType: vehicleType,
                 model: model,
@@ -30,22 +38,32 @@ const RegisterCar = ({ navigation }) => {
                 licensePlate: licensePlate,
                 yearOfManufacture: yearOfManufacture,
                 capacity: capacity,
-                canopyCar: canopyCar
-
+                canopyCar: canopyCar,
             });
-            if (data.status === 200) {
-                console.log(data)
-                alert(data.data.message)
-                navigation.navigate('Login')
-            } else {
-                console.log(data)
+            if (authData.status === 200) {
+               alert(authData.data.message)
+                setCNH("")
+                setVehicleType("")
+                setModel("")
+                setMark("")
+                setColor("")
+                setLicensePlate("")
+                setYearOfManufacture("")
+                setCapacity("")
+                setCanopyCar("")
+                dispatch({ type: "update", payload: true })
             }
-        } catch (err) {
-            console.log(err);
+            else {
+                console.log(authData.data.message)
+            }
+        }
+        catch (e) {
+            console.log(e);
         }
     }
 
     return (
+       <ScrollView>
         <View style={styles.view}>
             <Image
                 source={Logo}
@@ -54,71 +72,76 @@ const RegisterCar = ({ navigation }) => {
             />
 
             <CustomInput
-                placeholder="CNH"
+                placeholder="Número de CNH"
                 value={CNH}
                 setValue={setCNH}
             />
 
             <CustomInput
-                placeholder="vehicleType"
+                placeholder="Tipo de Veículo"
                 value={vehicleType}
                 setValue={setVehicleType}
             />
 
             <CustomInput
-                placeholder="model"
+                placeholder="Modelo"
                 value={model}
                 setValue={setModel}
             />
 
             <CustomInput
-                placeholder="mark"
+                placeholder="Marca"
                 value={mark}
                 setValue={setMark}
             />
 
             <CustomInput
-                placeholder="color"
+                placeholder="Cor"
                 value={color}
                 setValue={setColor}
             />
 
             <CustomInput
-                placeholder="licensePlate"
+                placeholder="Placa"
                 value={licensePlate}
                 setValue={setLicensePlate}
             />
 
             <CustomInput
-                placeholder="yearOfManufacture"
+                placeholder="Ano de Fabricação"
                 value={yearOfManufacture}
                 setValue={setYearOfManufacture}
             />
 
             <CustomInput
-                placeholder="capacity"
+                placeholder="Capacidade"
                 value={capacity}
                 setValue={setCapacity}
             />
 
-            <CustomInput
-                placeholder="canopyCar"
-                value={canopyCar}
-                setValue={setCanopyCar}
-            />
+            <Picker
+                selectedValue={canopyCar}
+                style={styles.picker}
+                onValueChange={setCanopyCar}
 
-
+            >
+                <Picker.Item label="Possui Capota" value="true" />
+                <Picker.Item label="Não possui Capota" value="false" />
+            </Picker>
 
             <CustomButton text="Register" onPress={onRegisterPressed} />
         </View>
+        </ScrollView>
+       
     )
 };
 
 const styles = StyleSheet.create({
     view: {
         alignItems: 'center',
-        padding: 20,
-        backgroundColor: '#272933'
+        padding: 10,
+        backgroundColor: '#272933',
+        flex: 1
     },
     logo: {
         width: '70%',
@@ -132,7 +155,7 @@ const styles = StyleSheet.create({
     picker: {
         marginVertical: 5,
         borderRadius: 5,
-        backgroundColor: 'FFEEC0',
+        backgroundColor: '#FFEEC0',
         textAlignVertical: 'center',
         textAlign: 'center',
         fontSize: '14px',

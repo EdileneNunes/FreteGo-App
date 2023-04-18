@@ -8,6 +8,7 @@ import api from '../api';
 import { Context } from '../context/authContext';
 import { FullWindowOverlay } from "react-native-screens";
 
+
 const Login = ({ navigation }) => {
     const { dispatch } = useContext(Context);
     const [email, setEmail] = useState('');
@@ -19,9 +20,9 @@ const Login = ({ navigation }) => {
                 email: email,
                 password: password
             })
-            if(authData.status === 200){
+            if (authData.status === 200) {
                 await AsyncStorage.setItem('token', authData.data.token)
-                dispatch({type:'logIn', payload: true})
+                dispatch({ type: 'logIn', payload: true })
             } else {
                 alert('Email ou Senha Inválidos')
                 setPassword('')
@@ -73,11 +74,15 @@ const Login = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    
+
     view: {
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#272933',
+<<<<<<< HEAD
+=======
+        flex: 1
+>>>>>>> fdf95146aa0cee8d798fca5141e4c93ef38c43b0
     },
     logo: {
         width: '70%',

@@ -42,4 +42,8 @@ const Object = connection.define(
     }
 );
 
+Review.belongsTo(User, {
+    foreignKey: 'idUser'
+  });
+
 export default Object;
